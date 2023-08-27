@@ -16,7 +16,10 @@ module.exports = {
             "Motivation comes from working on things we care about."
 
         ];
+        
+        await interaction.deferReply();
+
         const randomThought = thoughts[Math.floor(Math.random()*thoughts.length)];
-        await interaction.reply(randomThought);
+        await interaction.editReply(randomThought);
     },
 };

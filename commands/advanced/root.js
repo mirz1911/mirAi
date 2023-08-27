@@ -11,6 +11,10 @@ module.exports = {
         .setRequired(true)
     ),
     async execute(interaction){
-        await interaction.reply(toString(Math.sqrt(Number)));
+        const number = interaction.options.getInteger('numbers')
+        
+        await interaction.deferReply();
+
+        await interaction.editReply('root of ' + number + ' is: ' + (Math.sqrt(number)));
     }
 };

@@ -1,5 +1,4 @@
 
-const {ask} = require('./ai.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const {token}= require("./config.json");
@@ -32,17 +31,6 @@ for (const folder of commandFolders) {
 		}
 	}
 };
-client.on(Events.MessageCreate, async message => {
-	if(message.author.bot) return;
-	if(!message.guild) retun
-	if (message.content.substring(0, 1) === "!") {
-        const prompt = message.content.substring(1); //remove the exclamation mark from the message
-        const answer = await ask(prompt); //prompt GPT-3
-		message.channel.sendTyping()
-        await message.reply(answer); //reply to Discord with answer from GPT-3
-    }
-
-});
 
 client.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
